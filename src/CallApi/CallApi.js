@@ -54,7 +54,7 @@ render() {
                                onKeyPress={(e)=>{e.key === 'Enter'&& e.preventDefault()}}
                         />
 
-                        <button className="btn btn-outline-success my-2 my-sm-0" type="submit">איפוס</button>
+                        <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Reset</button>
                     </form>
                     <div className="card-deck">
                         {this.state.product
