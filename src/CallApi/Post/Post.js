@@ -32,7 +32,7 @@ class Post extends Component {
                             {/*<p className={cls2} >{this.props.stock5}  : במלאי מחסן 5 </p>*/}
                             {/*<p className="card-text">{this.props.Amp}Amp </p>*/}
                             {/*<p className="card-text">{this.props.R} {this.props.N}</p>*/}
-                            <p className="card-text">Cost Price :${this.props.unit_cost}  </p>
+                            <p className="card-text">IAT Cost Price :{this.props.unit_cost}  </p>
                             {/*<p className="card-text" dir="rtl">*/}
                             {/*    <FontAwesomeIcon icon={faSearchLocation} style={{color:"blue"}}/>*/}
                             {/*    {this.props.FirstFloor} כמות- {this.props.stock1} <br/> {this.props.secFloor}   כמות-{this.props.stock2}</p>*/}
