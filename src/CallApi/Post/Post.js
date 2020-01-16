@@ -7,7 +7,7 @@ import './Post.css';
 
 class Post extends Component {
     render() {
-        const cls = (this.props.onhand_quantity > 0) ? 'qty' : '';
+        const cls = (this.props.onhand > 0) ? 'qty' : '';
         const cls2 = (this.props.stock5 > 0) ? 'qty' : '';
 
 
