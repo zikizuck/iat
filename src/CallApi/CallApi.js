@@ -63,7 +63,7 @@ render() {
 
                     <form  className="form-inline my-2 my-lg-0">
                         <input className="form-control mr-sm-2" type="search"
-                               placeholder="by IAT number"
+                               placeholder="Search by any number"
                                onChange={this.clickHandler.bind(this)}
                                onKeyPress={(e)=>{e.key === 'Enter'&& e.preventDefault()}}/>
                         {/*<input className="form-control mr-sm-2" type="search"*/}
