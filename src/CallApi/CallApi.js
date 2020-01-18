@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 import Post from "./Post/Post";
+import Loader from 'react-loader-spinner';
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+
 
 
 class CallApi extends Component {
@@ -8,7 +11,9 @@ class CallApi extends Component {
         this.state ={
             product:[],
             search :"",
-            search2 :""
+            search2 :"",
+            search3 :"",
+            value : "item"
         }
 
     }
@@ -34,15 +39,34 @@ class CallApi extends Component {
         }
 
     }
+    search3Handler (e){
+        if(e.target.value !==""){
+            this.setState({search3 : e.target.value.toUpperCase()})
+        }
+
+    }
+
+    optionHandler(event) {
+        this.setState({value:event.target.value})
+    }
 
 
 
 render() {
+        const searchValue = this.state.value;
         return (
 
             <div>
 
+
                 <div className="container">
+                    {/*<select onChange={this.optionHandler.bind(this)}>*/}
+                    {/*    <option value="wai">WAI</option>*/}
+                    {/*    <option value="wai">WAI</option>*/}
+                    {/*    <option value="wai">WAI</option>*/}
+                    {/*    <option value="wai">WAI</option>*/}
+                    {/*</select>*/}
+
                     <form  className="form-inline my-2 my-lg-0">
                         <input className="form-control mr-sm-2" type="search"
                                placeholder="by IAT number"
@@ -53,13 +77,23 @@ render() {
                                onChange={this.search2Handler.bind(this)}
                                onKeyPress={(e)=>{e.key === 'Enter'&& e.preventDefault()}}
                         />
+                        <input className="form-control mr-sm-2" type="search"
+                               placeholder="By J&N number"
+                               onChange={this.search3Handler.bind(this)}
+                               onKeyPress={(e)=>{e.key === 'Enter'&& e.preventDefault()}}
+                        />
 
                         <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Reset</button>
                     </form>
+                    <Loader type="Bars" color="#somecolor" height={80} width={80} timeout={3000}/>
+
+
+
                     <div className="card-deck">
                         {this.state.product
                             .filter(prod => prod.item.includes(this.state.search) )
                             .filter(prod => prod.WAI.includes(this.state.search2) )
+                            .filter(prod => prod.JN.includes(this.state.search3) )
                             .map(product => {
                                 return <Post
                                     {...product}

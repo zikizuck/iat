@@ -3,7 +3,7 @@ import './App.css';
 import CallApi from "./CallApi/CallApi";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from "./CallApi/Header/Header";
-
+import Loader from "react-loader-spinner";
 
 function App() {
   return (
@@ -12,6 +12,7 @@ function App() {
 
 
         <Header/>
+
         <CallApi/>
     </div>
   );

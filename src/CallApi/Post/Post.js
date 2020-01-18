@@ -4,6 +4,9 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { faShekelSign ,faSearchLocation} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './Post.css';
+import Loader from "react-loader-spinner";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+
 
 class Post extends Component {
     render() {
@@ -13,6 +16,7 @@ class Post extends Component {
 
         return (
                 <div >
+
                     <div className="card " >
                         <div>{this.props.id}</div>
                         {/*<span>*/}
