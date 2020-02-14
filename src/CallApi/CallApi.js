@@ -2,6 +2,8 @@ import React, {Component, Suspense} from 'react';
 import Post from "./Post/Post";
 import Loader from 'react-loader-spinner';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import {debounce} from 'lodash';
+
 
 
 
@@ -27,28 +29,35 @@ class CallApi extends Component {
             })
 
     }
-     clickHandler (e){
+
+    onDebounce = debounce((e) => this.clickHandler(e) , 300);
+
+    clickHandler = (e) => {
         if(e.target.value !==""){
             this.setState({search : e.target.value.toUpperCase()})
         }
-
-     }
-    search2Handler (e){
-        if(e.target.value !==""){
-            this.setState({search2 : e.target.value.toUpperCase()})
-        }
-
-    }
-    search3Handler (e){
-        if(e.target.value !==""){
-            this.setState({search3 : e.target.value.toUpperCase()})
-        }
-
     }
 
-    optionHandler(event) {
-        this.setState({value:event.target.value})
+    onChange = (e) => {
+        e.persist();
+        this.onDebounce(e);
     }
+    // search2Handler (e){
+    //     if(e.target.value !==""){
+    //         this.setState({search2 : e.target.value.toUpperCase()})
+    //     }
+    //
+    // }
+    // search3Handler (e){
+    //     if(e.target.value !==""){
+    //         this.setState({search3 : e.target.value.toUpperCase()})
+    //     }
+    //
+    // }
+    //
+    // optionHandler(event) {
+    //     this.setState({value:event.target.value})
+    // }
 
 
 
@@ -64,7 +73,7 @@ render() {
                     <form  className="form-inline my-2 my-lg-0">
                         <input className="form-control mr-sm-2" type="search"
                                placeholder="Search by any number"
-                               onChange={this.clickHandler.bind(this)}
+                               onChange={this.onChange}
                                onKeyPress={(e)=>{e.key === 'Enter'&& e.preventDefault()}}/>
                         {/*<input className="form-control mr-sm-2" type="search"*/}
                         {/*       placeholder="By WAI number"*/}
